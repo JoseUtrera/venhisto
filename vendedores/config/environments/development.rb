@@ -28,11 +28,11 @@ Vendedores::Application.configure do
 
   
     config.action_mailer.smtp_settings = {
-    :address              => 'smtp.gmail.com',
+    :address              => 'smtp.xxxx.com',
     :port                 =>  587,
-    :domain               => 'gmail.com',
-    :user_name            => 'vendedoresdehistorias@gmail.com',
-    :password             => 'Vendedores2017',
+    :domain               => 'xxxxx.com',
+    :user_name            => 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
+    :password             => 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
     :authentication       => :plain,
     :enable_starttls_auto => true }
   

@@ -107,8 +107,8 @@ class Order < ActiveRecord::Base
 
     if creditcard.valid? # validating the card automatically detects the card type
       gateway = ActiveMerchant::Billing::AuthorizeNetGateway.new( # usa mi cuenta de pruebas
-        :login     => '43W2Q6Mwkt',
-        :password  => '3BgF749dN875qrPm'
+        :login     => 'xxxxxxxxxxxxx',
+        :password  => 'xxxxxxxxxxxxx'
        # the statement ":test = 'true'" tells the gateway to not to process transactions
       )
       
