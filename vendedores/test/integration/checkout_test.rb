@@ -42,9 +42,9 @@ class CheckoutTest < ActionDispatch::IntegrationTest
       :ship_to_country_code => 'Country',
       # Billing information
       :card_type => 'Visa',
-      :card_number => '4007000000027',
-      :card_expiration_month => '3',
-      :card_expiration_year => '2018',
+      :card_number => 'xxxxxxxxx',
+      :card_expiration_month => 'xxxx',
+      :card_expiration_year => 'xxxxx',
       :card_verification_value => '000'
     }
  
