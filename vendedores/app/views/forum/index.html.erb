@@ -1,0 +1,15 @@
+<% if @posts.size > 0 %>
+  <div><%= link_to 'Nuevo Mensaje', :action => 'post' %></div>
+  <p></p>
+  <!-- El procedimiento display_like_a_tree se encuentra en 
+       app/helpers/forum_helperl.rb -->
+  <table><%= display_like_a_tree @posts %>
+  </table>
+  <p></p>
+<% else %>
+  <p>No existen Post. <%= link_to 'Si quieres ser el primero en enviar un mensaje, click aquí. ', :action => 'post' %></p>
+<% end %>
+
+<%= will_paginate @posts, :page_links => false, :link_separator => ' | ',
+                          :previous_label => 'Página Anterior', :next_label => 'Siguiente Página' %>
+

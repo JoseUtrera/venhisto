@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">  
+
+<head>
+  <title><%= @page_title || 'Vendedores de Historias' %></title>
+  <%= stylesheet_link_tag "style" %>
+  <% if @page_title == 'Crear libro' || @page_title == 'Editar Libro'  %>
+    <%= javascript_include_tag "scriptaculous/prototype" %>
+    <% source = "scriptaculous/src/scriptaculous.js?load=effects,controls" %>
+    <%= javascript_include_tag source.sub('controls.js', 'controls') %>
+<!-- En elsif se meten las páginas que deben pedir confirmación al borrar -->
+    <% elsif @cart || (@page_title && (@page_title.include?('Listado')  || @page_title.include?('Detalles') ||@page_title == 'Temas de discusión')) %>
+    <%= javascript_include_tag "application" %>
+  <% end %>
+</head>
+
+<!-- Muestra la cabecera-->
+<body>
+<div id="header">
+  <h1 id="logo">Vendedores de Historias &trade;</h1>
+  <h2 id="slogan">Librería Online</h2>
+  <p id="loginlogout">
+    <% if current_user %>
+      Usuario conectado: <%= current_user.login %>
+      (<%= link_to "Editar Cuenta", :controller => '/user', :action => :show %>)
+      <br/>
+      (<%= link_to "Desconectar", :controller => '/user_session', :action => :destroy %>)
+    <% else %>
+      <% if User.count == 0 %>
+        (<%= link_to "Crear Cuenta", :controller => '/user', :action => :new %>)
+      <% else %>
+        (<%= link_to "Iniciar Sesión", :controller => '/user_session', :action => :new %>)
+      <% end %>
+    <% end %>
+  </p>
+</div>
+
+
+<!-- Muestra el Menú -->
+<div id="menu">
+  <ul>
+    <li><a href="/admin/author">Autores</a>&nbsp;|&nbsp;</li>
+    <li><a href="/admin/publisher">Editores</a>&nbsp;|&nbsp;</li>
+    <li><a href="/admin/book">Libros</a>&nbsp;|&nbsp;</li>
+    <li><a href="/admin/tag">Palabras Clave</a>&nbsp;|&nbsp;</li>
+    <li><a href="/admin/order">Pedidos</a>&nbsp;|&nbsp;</li>
+    <li><a href="/">Catálogo</a>&nbsp;|&nbsp;</li>
+    <li><a href="/forum">Temas de Discusión</a>&nbsp;|&nbsp;</li>
+    <li><a href="/about">Acerca de</a>&nbsp;</li>
+  </ul>
+</div>
+ 
+<!-- Muestra el contenido de la página seleccionada--> 
+<div id="content">
+  <h1><%= @page_title if @page_title %></h1>
+  <% if flash[:notice] %>
+    <div id="notice"><%= flash[:notice] %></div>
+  <% end %>
+  <%= yield %>
+</div>
+
+<!-- Muestra el carrito en la parte derecha de la página-->
+<% if @cart %>
+  <div id="shopping_cart"><%= render :partial => 'cart/cart' %></div>
+<% end %>
+
+<!-- Muestra el pie de página-->
+<div id="footer">
+ &copy; 2017 Vendedores de Historias
+</div>  
+</body>
+</html>

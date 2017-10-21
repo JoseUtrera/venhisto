@@ -1,0 +1,23 @@
+
+
+  
+<% if @author.errors.any? %>
+  <div id="errorExplanation">
+  <h2>Para grabar el autor debe solucionar <%= pluralize(@author.errors.count, "error","errores") %> :</h2>
+    <ul>
+      <% @author.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<div class="field">
+  <p><label for="author_first_name">Nombre</label><br/>
+  <%= text_field 'author', 'first_name' %></p>
+</div>
+
+<div class="field">
+  <p><label for="author_last_name">Apellidos</label><br/>
+  <%= text_field 'author', 'last_name' %></p>
+</div>

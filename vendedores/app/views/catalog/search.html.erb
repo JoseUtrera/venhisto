@@ -1,0 +1,8 @@
+<%= render :partial => "search_box" %>
+
+<% if @books && @books.size > 0 %>
+  <p>Su búsqueda "<%= params[:search_arg] %>" ha producido <%= pluralize @books.size, "resultado" %>:</p>
+  <%= render :partial => "books" %>
+<% end %>
+
+<%= link_to 'Atrás', :action => 'index' %> 

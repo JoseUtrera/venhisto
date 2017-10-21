@@ -1,0 +1,9 @@
+<p>
+<%= link_to '5 últimos', :action => 'latest' %> |
+<%= link_to 'Buscar', :action => 'search' %> 
+
+</p>
+<%= render :partial => 'books' %>
+<%= will_paginate @books, :page_links => false, :link_separator => ' | ',
+                          :previous_label => 'Página previa', :next_label => 'Siguiente página' %>
+

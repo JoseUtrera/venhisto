@@ -1,0 +1,17 @@
+ 
+<% if @tag.errors.any? %>
+  <div id="errorExplanation">
+  <h2>Para grabar el libro debe solucionar <%= pluralize(@tag.errors.count, "error","errores") %> :</h2>
+    <ul>
+      <% @tag.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<div class="field">
+  <p><label for="tag_name">Palabra Clave</label><br/>
+  <%= text_field 'tag', 'name' %></p>
+</div>
+

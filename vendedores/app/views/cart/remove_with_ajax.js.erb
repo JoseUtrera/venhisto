@@ -1,0 +1,14 @@
+jQuery.noConflict();
+jQuery("#cart_notice").html("<%= j flash[:cart_notice] %>");
+jQuery("#cart_notice").show();
+
+<% if @cart.books.include?(@book) %>
+  jQuery("#cart_item_<%= @item.book.id %>").html("<%= j render :partial => 'cart/item', :object => @item %>");
+  jQuery("#cart_item_<%= @item.book.id %>").css({'background-color':'#7ef'}).animate({'background-color':'#def'}, 3000);
+<% else %>
+  jQuery("#cart_item_<%= @item.book.id %>").css({'background-color':'#ff0'});
+  jQuery("#cart_item_<%= @item.book.id %>").hide('fade', {}, 1000);
+<% end %>
+
+jQuery('#cart_total').html("<strong>Total: <%= sprintf "%0.2f €", @cart.total %></strong>"); 
+jQuery('#cart_notice').hide('fade', {}, 3000);

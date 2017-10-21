@@ -1,0 +1,30 @@
+<dl>
+  <dt>Título</dt>
+  <dd><%= @book.title %></dd>
+    <dt>Palabras Clave</dt>
+  <dd><%= display_tags @book %></dd>
+  <dt>Editor</dt>
+  <dd><%= @book.publisher.name %></dd>
+  <dt>Fecha de Publicación</dt>
+  <dd><%=@book.published_at.strftime("%m/%d/%Y at %I:%M%p") %></dd>
+  <dt>Autor</dt>
+  <dd><%= @book.author_names %></dd>
+  <dt>ISBN</dt>
+  <dd><%= @book.isbn %></dd>
+  <dt>Reseña</dt>
+  <dd><%= textilize @book.blurb %></dd>
+  <dt>Precio</dt>
+  <dd><%= @book.price %></dd>
+  <dt>Número de Páginas</dt>
+  <dd><%= @book.page_count %></dd>
+  <dt>Portada</dt>
+  <% if @book.cover_image.exists? then %>
+    <dd><%= image_tag @book.cover_image.url %></dd>
+  <% else %>
+    <dd><%= image_tag '/missing.png' %></dd>
+    <p> Sin carátula. Por favor añada una. </p>
+  <% end %>
+</dl>
+
+<%= link_to 'Editar', :action => 'edit', :id => @book %> |
+<%= link_to 'Atrás', :action => 'index' %>

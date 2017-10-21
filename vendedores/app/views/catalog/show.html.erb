@@ -1,0 +1,39 @@
+<h2>de <%=@book.author_names %></h2>
+<% if @book.cover_image.exists? then %>
+  <dd><%= image_tag @book.cover_image.url %></dd>
+<% else %>
+  <p>Sin carátula.</p>
+<% end %>
+<dl>
+  <dt>Palabras Clave</dt>
+  <dd><%= display_tags @book %></dd>
+  <dt>Precio</dt>
+  <dd><%= sprintf("%0.2f €", @book.price) %></dd>
+  <dt>Número de Páginas</dt>
+  <dd><%= @book.page_count %></dd>
+  <dt>Editor</dt>
+  <dd><%= @book.publisher.name %></dd>
+  <dt>Reseña</dt>
+  <dd><%= textilize @book.blurb %></dd>
+</dl>
+
+<div id="recommended">
+  <% if @book_tagged_related.first %>
+    <h2>Recomendaciones</h2>
+    <h4>Libros</h4>
+      <% for book in @book_tagged_related %>
+        <%= link_to book.title, :action => 'show', :id => book %></br>
+      <% end %>
+    <% if @book_related_tags.first %>
+      <h4>Palabras Clave</h4>
+      <% for tag in @book_related_tags %>
+        <%= link_to tag.name, :controller => 'admin/tag', :action => 'show', :id => tag %>
+      <% end %>
+    <% end %>
+  <% else %>
+    <h2>No tenemos recomendaciones</h2>
+  <% end %>
+</div>
+
+<p><%= link_to 'Catálogo', :action => 'index' %> </p>
+

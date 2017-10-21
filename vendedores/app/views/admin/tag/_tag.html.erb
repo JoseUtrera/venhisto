@@ -1,0 +1,9 @@
+ 
+<tr>
+  <td><%= link_to tag.name, :action => 'show', :id => tag %></td>
+  <td><%= link_to 'Editar', :action => 'edit', :id => tag %></td>
+  <td>
+    <%= button_to 'Eliminar', {:action => 'destroy', :id => tag},
+        :confirm => "Seguro que deseas borrar la plabra clave #{tag.name}?" %>
+  </td>
+</tr>

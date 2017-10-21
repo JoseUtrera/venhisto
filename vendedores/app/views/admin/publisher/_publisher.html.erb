@@ -1,0 +1,9 @@
+<tr>
+  <td><%= link_to publisher.name, :action => 'show', :id => publisher %></td>
+  <td><%= link_to 'Editar', :action => 'edit', :id => publisher %></td>
+  <td>
+    <%= button_to 'Eliminar', {:action => 'destroy', :id => publisher},
+        :confirm => "¿ Seguro que desea eliminar el editor #{publisher.name}?" %>
+  </td>
+</tr>
+

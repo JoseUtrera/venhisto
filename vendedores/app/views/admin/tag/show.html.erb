@@ -1,0 +1,11 @@
+ 
+<% if @books.count > 0 %>
+  <dl>
+    <dt>Título</dt>
+    <% @books.each do |book| %>
+      <%= link_to book.title, :controller => '/catalog', :action => 'show', :id => book %></br>
+    <% end %>
+  </dl>
+<% end %>
+
+<%= link_to 'Atrás', :action => 'index' %>

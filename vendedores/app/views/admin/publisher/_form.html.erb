@@ -1,0 +1,16 @@
+<% if @publisher.errors.any? %>
+  <div id="errorExplanation">
+  <h2>Para grabar el editor debe solucionar <%= pluralize(@publisher.errors.count, "error","errores") %> :</h2>
+
+    <ul>
+      <% @publisher.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<div class="field">
+  <p><label for="publisher_name">Nombre</label><br/>
+  <%= text_field 'publisher', 'name' %></p>
+</div>

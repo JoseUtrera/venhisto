@@ -1,0 +1,7 @@
+ 
+<%= form_tag :action => 'update', :id => @user do %>
+  <%= render :partial => 'form' %>
+  <%= submit_tag 'Actualizar Cuenta' %>
+<% end %>
+
+<%= link_to 'Atrás', :action => 'show' %>

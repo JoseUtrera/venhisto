@@ -1,0 +1,7 @@
+
+<%= form_tag "/admin/book/create?id=#{@book.id}", :multipart => true do %>
+  <%= render :partial => 'form' %>   
+  <%= submit_tag 'Crear libro' %>
+<% end %>
+
+<%= link_to 'Atrás', :action => 'index' %>

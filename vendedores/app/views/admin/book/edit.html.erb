@@ -1,0 +1,7 @@
+<%= form_tag "/admin/book/update?id=#{@book.id}", :multipart => true do %>
+  <%= render :partial => 'form' %>
+  <%= submit_tag 'Actualizar libro' %>
+<% end %>
+
+<%= link_to 'Mostrar', :action => 'show', :id => @book %> |
+<%= link_to 'Atrás', :action => 'index' %>

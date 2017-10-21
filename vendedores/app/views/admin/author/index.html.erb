@@ -1,0 +1,13 @@
+
+
+<table>
+  <tr>
+    <th>Nombre</th>
+    <th>Editar</th>
+    <th>Borrar</th>
+  </tr>
+
+  <%= render :partial => 'author', :collection => @authors %>
+</table>
+
+<p><%= link_to 'Añadir nuevo autor', :action => 'new' %></p>

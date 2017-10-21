@@ -1,0 +1,8 @@
+ 
+<%= form_tag :action => 'update', :id => @tag do %>
+  <%= render :partial => 'form' %>
+  <%= submit_tag 'Actualizar Palabra Clave' %>
+<% end %>
+
+<%= link_to 'Mostrar', :action => 'show', :id => @tag %> |
+<%= link_to 'Atrás', :action => 'index' %>

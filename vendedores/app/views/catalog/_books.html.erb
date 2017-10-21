@@ -1,0 +1,17 @@
+<dl id = 'books'>
+  <% for book in @books %>
+    <dt>
+      <%= link_to book.title, :action => 'show', :id => book %>
+      <%= link_to '+', :controller => 'cart', :action => 'add', :id => book,
+                       :remote => true %>
+    </dt>
+    <% for author in book.authors %>
+      <dd><%= author.last_name %>, <%= author.first_name %></dd>
+    <% end %>
+    <dd><%= sprintf("%s. Precio: %.2f €", pluralize(book.page_count, "página"), book.price) %> </dd>
+    <dd><small>Editor: <%= book.publisher.name %></small></dd>
+  <% end %>
+</dl>
+
+
+

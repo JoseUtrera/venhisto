@@ -1,0 +1,3 @@
+module Admin::TagHelper
+end
+

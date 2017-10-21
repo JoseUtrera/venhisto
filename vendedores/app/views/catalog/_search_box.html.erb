@@ -1,0 +1,9 @@
+<%= form_tag 'search', :method => 'get' do %>
+<%= text_field_tag :search_arg %>
+<%= submit_tag 'Por título' %>
+<% end %>
+<br/>
+<%= form_tag 'search', :method => 'get' do %>
+<%= text_field_tag :search_arg %>
+<%= submit_tag 'Por autores' %>
+<% end %>

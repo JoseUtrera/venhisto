@@ -1,0 +1,16 @@
+<table>
+  <tr>
+    <th>Nombre</th>
+    <th>Editar</th>
+    <th>Eliminar</th>
+  </tr>
+
+  <%= render :partial => 'tag', :collection => @tags %>
+</table>
+
+<% if @tags.total_pages > 1 %> </br> <% end %>
+
+<%= will_paginate @tags, :page_links => false, :link_separator => ' | ',
+                         :previous_label => 'Página previa', :next_label => 'Siguiente página siguiente' %>
+<p><%= link_to 'Añadir nueva Palabra Clave', :action => 'new' %></p>
+
